@@ -66,6 +66,7 @@ router.get('/findArticle',function (req, res) {
             date: article.date,
             label: []
         };
+        console.log('data',data)
         res.jsonp(data);
     })();
 });

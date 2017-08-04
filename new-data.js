@@ -1,6 +1,7 @@
 const User = require('./models/user');
 const Label = require('./models/label');
 const ArticleLabel = require('./models/article_label');
+const Article = require('./models/article');
 
 // (async () => {
 //     await User.create({
@@ -15,10 +16,22 @@ const ArticleLabel = require('./models/article_label');
 //     });
 // })();
 
+// (async () => {
+//     await ArticleLabel.create({
+//         article_id: 1,
+//         label_id: 1
+//     });
+// })();
+
 (async () => {
-    await ArticleLabel.create({
-        article_id: 1,
-        label_id: 1
+    let article = await Article.update({
+        is_deleted : 0
+    }, {
+        where: {
+            id: {
+                $like: '2'
+            }
+        }
     });
 })();
 
